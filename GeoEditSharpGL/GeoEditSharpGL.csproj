@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EFF3D9B3-FF41-41E6-ACAE-DC399F686A0D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GeoEdit</RootNamespace>
+    <AssemblyName>PEXELv1.0</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\Files\DotNetZipLib-DevKit-v1.9\zip-v1.9\Release\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpGL, Version=2.0.0.0, Culture=neutral, PublicKeyToken=27fc851303210b27, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dependencies\SharpGL.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpGL.SceneGraph, Version=1.0.0.0, Culture=neutral, PublicKeyToken=27fc851303210b27, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dependencies\SharpGL.SceneGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpGL.WinForms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=27fc851303210b27, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dependencies\SharpGL.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Actnum.cs" />
+    <Compile Include="Compdat.cs" />
+    <Compile Include="IndexValue.cs" />
+    <Compile Include="CommandForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommandForm.Designer.cs">
+      <DependentUpon>CommandForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateGridForm.designer.cs">
+      <DependentUpon>CreateGridForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddModelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddModelForm.designer.cs">
+      <DependentUpon>AddModelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreatePropForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreatePropForm.designer.cs">
+      <DependentUpon>CreatePropForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cell.cs" />
+    <Compile Include="CellFace.cs" />
+    <Compile Include="GridPlane.cs" />
+    <Compile Include="IJKSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IJKSettingsForm.Designer.cs">
+      <DependentUpon>IJKSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modifier.cs" />
+    <Compile Include="ModifiersGroup.cs" />
+    <Compile Include="ModifierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierForm.Designer.cs">
+      <DependentUpon>ModifierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Point2D.cs" />
+    <Compile Include="PropEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropEditForm.Designer.cs">
+      <DependentUpon>PropEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PropFace.cs" />
+    <Compile Include="PropModifier.cs" />
+    <Compile Include="PropPlane.cs" />
+    <Compile Include="ScalePropForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScalePropForm.Designer.cs">
+      <DependentUpon>ScalePropForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectLayersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectLayersForm.Designer.cs">
+      <DependentUpon>SelectLayersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface2DView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SetCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetCheckForm.Designer.cs">
+      <DependentUpon>SetCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetNameForm.Designer.cs">
+      <DependentUpon>SetNameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="SetValueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetValueForm.Designer.cs">
+      <DependentUpon>SetValueForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TempForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TempForm.Designer.cs">
+      <DependentUpon>TempForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WellEvent.cs" />
+    <Compile Include="WellFace.cs" />
+    <Compile Include="WellImportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WellImportForm.Designer.cs">
+      <DependentUpon>WellImportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WellsPlane.cs" />
+    <Compile Include="ZcornItem.cs" />
+    <Compile Include="CMGReader.cs" />
+    <Compile Include="Coord.cs" />
+    <Compile Include="FileType.cs" />
+    <Compile Include="GRDECLReader.cs" />
+    <Compile Include="Grid.cs" />
+    <Compile Include="GridInfo.cs" />
+    <Compile Include="ImportPropForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportPropForm.Designer.cs">
+      <DependentUpon>ImportPropForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InclPoint.cs" />
+    <Compile Include="Index3D.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MapAxes.cs" />
+    <Compile Include="Model.cs" />
+    <Compile Include="ModelInfo.cs" />
+    <Compile Include="Pillar.cs" />
+    <Compile Include="Point3D.cs" />
+    <Compile Include="Project.cs" />
+    <Compile Include="Prop.cs" />
+    <Compile Include="PropScale.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleWell.cs" />
+    <Compile Include="SpecGrid.cs" />
+    <Compile Include="Well.cs" />
+    <Compile Include="Zcorn.cs" />
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommandForm.resx">
+      <DependentUpon>CommandForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateGridForm.resx">
+      <DependentUpon>CreateGridForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddModelForm.resx">
+      <DependentUpon>AddModelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreatePropForm.resx">
+      <DependentUpon>CreatePropForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IJKSettingsForm.resx">
+      <DependentUpon>IJKSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportPropForm.resx">
+      <DependentUpon>ImportPropForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifierForm.resx">
+      <DependentUpon>ModifierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropEditForm.resx">
+      <DependentUpon>PropEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScalePropForm.resx">
+      <DependentUpon>ScalePropForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectLayersForm.resx">
+      <DependentUpon>SelectLayersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface2DView.resx">
+      <DependentUpon>Interface2DView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetCheckForm.resx">
+      <DependentUpon>SetCheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetNameForm.resx">
+      <DependentUpon>SetNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetValueForm.resx">
+      <DependentUpon>SetValueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TempForm.resx">
+      <DependentUpon>TempForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WellImportForm.resx">
+      <DependentUpon>WellImportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Установщик Windows 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Dependencies\SharpGL.dll" />
+    <None Include="Dependencies\SharpGL.SceneGraph.dll" />
+    <None Include="Dependencies\SharpGL.WinForms.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Cursor1.cur" />
+    <None Include="Resources\Rename-icon.png" />
+    <None Include="Resources\rename1600.png" />
+    <None Include="Resources\rename-512.png" />
+    <None Include="Resources\visart.png" />
+    <None Include="Resources\Import_A-512.png" />
+    <None Include="Resources\scale.png" />
+    <None Include="Resources\Add.png" />
+    <None Include="Resources\Folder Add-01.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\settings.ico" />
+    <None Include="Resources\deletered.png" />
+    <None Include="Resources\circles.png" />
+    <None Include="Resources\237009-file_document__arrow_move_export-128.png" />
+    <None Include="Resources\edit-document-icon-69718.png" />
+    <None Include="Resources\modify grid icon.jpg" />
+    <None Include="Resources\Target-512 %281%29.png" />
+    <None Include="Resources\58-grid-lines-streamline.png" />
+    <None Include="Resources\3x3_grid.png" />
+    <None Include="Resources\Target-512%281%29.png" />
+    <None Include="Resources\well256.png" />
+    <None Include="Resources\model256.png" />
+    <None Include="Resources\20737-200.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

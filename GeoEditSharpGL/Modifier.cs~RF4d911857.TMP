@@ -1,0 +1,74 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Drawing;
+using System.IO;
+
+
+
+
+namespace GeoEdit
+{
+    [Serializable]
+    public class Modifier
+    {
+        public Modifier()
+        {
+            Title = "Modifier_" + (Number++).ToString();
+            Point = new PointF(0, 0);
+            Value = 0;
+            Radius = 0;
+            Layers = new int[0];
+            Applied = false;
+        }
+        public Modifier(string title, PointF point, float radius, float value, int[] layers, bool applied = false)
+        {
+            Title = title;
+            Point = point;
+            Radius = radius;
+            Value = value;
+            Layers = layers;
+            Applied = applied;
+        }
+        public string Title { set; get; }
+        public bool Applied { set; get; }
+        public PointF Point { set; get; }
+        public float Value { set; get; }
+        public float Radius { set; get; }
+        public int[] Layers { set; get; }
+        static long Number = 1;
+
+
+
+        public void BinaryWrite(BinaryWriter writer)
+        {
+            writer.Write(Title);
+            writer.Write(Applied);
+            writer.Write(Point.X);
+            writer.Write(Point.Y);
+            writer.Write(Radius);
+            writer.Write(Value);
+            writer.Write(Layers.Count());
+            foreach (int i in Layers)
+                writer.Write(i);
+        }
+
+
+
+        public void BinaryRead(BinaryReader reader)
+        {
+            Title = reader.ReadString();
+            Applied = reader.ReadBoolean();
+            Point = new PointF(reader.ReadSingle(), reader.ReadSingle());
+            Radius = reader.ReadSingle();
+            Value = reader.ReadSingle();
+            int ln = reader.ReadInt32();
+            for (int l = 0; l < ln; ++l)
+                Layers[l] = reader.ReadInt32();
+        }
+
+
+
+    }
+}

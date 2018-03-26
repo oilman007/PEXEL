@@ -1,0 +1,68 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+
+
+namespace GeoEdit
+{
+    class GridPackege
+    {
+
+        public GridPackege() { }
+
+        public Grid Grid { set; get; }
+
+        public PropPackege Props { set; get; }
+        
+        public int [] SelectedLayers { set; get; }
+
+
+        public PropPackege CurProp { set; get; }
+
+        public PropPackege CurWeght { set; get; }
+
+
+
+
+
+        public GridPlane Plane(int[] layers)
+        {
+            int nx = Grid.NX();
+            int ny = Grid.NY();
+            GridPlane result = new GridPlane(nx, ny);
+            for (int i = 0; i < nx; ++i)
+                for (int j = 0; j < ny; ++j)
+                {
+                    List<CellFace> faces = new List<CellFace>();
+                    foreach (int k in layers)
+                        faces.Add(Grid.GlobalCell(i, j, k).MiddleFrontFace());
+                    foreach (int k in layers)
+                        if((Grid.Actnum.Values[i, j, k]) == true)
+                        {
+                            result.Act[i, j] = true;
+                            break;
+                        }
+                    result.Faces[i, j] = AverageCellFace(faces);
+                }
+            return result;
+        }
+
+
+
+        CellFace AverageCellFace(List<CellFace> faces)
+        {
+            int count = faces.Count();
+            CellFace summ = faces[0];
+            for(int i = 1; i < count; ++i)
+                summ += faces[i];
+            return summ / count;
+        }
+
+
+
+
+
+    }
+}
